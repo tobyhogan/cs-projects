@@ -36,8 +36,6 @@ def den_to_hex(num):
 
 
 for i in range(max_pos_occupied, -1, -1):
-
-
     times_hex_into_den = den_num_remaining // (16**i)
     hex_num += den_to_hex(times_hex_into_den)
     den_num_remaining -= (times_hex_into_den*(16**i))

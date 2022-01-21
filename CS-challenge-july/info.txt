@@ -1,5 +1,8 @@
 Challenges complete:
-- 40
-- 41
-- 62
-- 77
+- 40: denary to hex
+- 41: prime factorization
+- 50: mandelbrot set[working on]
+- 62: password generator
+- 77: fibonacci
+- 78: change calculator[working on]
+

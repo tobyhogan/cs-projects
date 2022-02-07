@@ -23,7 +23,6 @@ for denom in pound_denoms:
 
 pound_combinations = []
 
-for i
 
 # for denom in pence_denoms:
 #     if pence % denom == 0:

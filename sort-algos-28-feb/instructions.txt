@@ -1,0 +1,6 @@
+Code 4 sorting algorithms in python:
+- Insertion sort
+- Bubble sort
+- Quick sort
+
+Comments on eatch line

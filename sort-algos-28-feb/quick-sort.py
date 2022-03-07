@@ -19,30 +19,26 @@ A pivot is an item in the final sorted array that:
 """
 
 # this is the data set that will be used for the project
-p_data = [3, 9, 2, 1, 8, 7, 6, 5, 9, 6, 2, 8]
+data = [3, 9, 2, 1, 8, 7, 6, 5, 9, 6, 2, 8]
 
-# checks if the data has an even number of items
-if (len(p_data) % 2) == 0:
-    # if it does then the middle item is the one right middle one
-    middle = p_data[int(len(p_data) / 2)]
+def quick_sort(data):
+    # checks if the data has an even number of items
+    if (len(data) % 2) == 0:
+        # if it does then the middle item is the one right middle one
+        middle = data[int(len(data) / 2)]
 
-# checks if the data does not have an even number
-else:
-    # if it does then the middle item is the one at the actual middle of the list
-    middle = p_data[(len(p_data) // 2)]
-
-
-quartiles = [p_data[0], middle, p_data[-1]]
-quartiles.sort()
-p_pivot = quartiles[1]
+    # checks if the data does not have an even number
+    else:
+        # if it does then the middle item is the one at the actual middle of the list
+        middle = data[(len(data) // 2)]
 
 
-def quick_sort(data, pivot):
+    quartiles = [data[0], middle, data[-1]]
+    quartiles.sort()
+    pivot = quartiles[1]
+    data.remove(pivot)
+
     while True:
-        print(data)
-        print(pivot)
-        # data.remove(pivot)
-
         for e, i in enumerate(data):
             if i > pivot:
                 l_index = e
@@ -58,5 +54,15 @@ def quick_sort(data, pivot):
         else:
             data[e], data[r_index] = data[r_index], data[e]
 
+    data.insert(len(data) // 2, pivot)
 
-quick_sort(p_data, p_pivot)
+    print(data)
+
+    if len(data) >= 3:
+        return quick_sort(data[0:data.index(pivot)]) + quick_sort(data[data.index(pivot) + 1:])
+
+    else:
+        pass
+
+
+print(quick_sort(data))

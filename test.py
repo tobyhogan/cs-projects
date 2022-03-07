@@ -1,5 +1,6 @@
-array = [1, 2, 3]
+from argparse import ArgumentError
 
-for i in array:
-    array[-1] = 3
-    print(i)
+
+arr = [1, 3, 3]
+arr.remove(3)
+print(arr)

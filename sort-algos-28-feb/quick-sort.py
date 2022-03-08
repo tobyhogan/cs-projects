@@ -21,48 +21,70 @@ A pivot is an item in the final sorted array that:
 # this is the data set that will be used for the project
 data = [3, 9, 2, 1, 8, 7, 6, 5, 9, 6, 2, 8]
 
+
 def quick_sort(data):
-    # checks if the data has an even number of items
-    if (len(data) % 2) == 0:
-        # if it does then the middle item is the one right middle one
-        middle = data[int(len(data) / 2)]
+    if len(data) < 3:
+        print(f"Data that's less than 3: {data}")
+        if data[1] > data[0]:
+            data[0], data[1] = data[1], data[0]
 
-    # checks if the data does not have an even number
-    else:
-        # if it does then the middle item is the one at the actual middle of the list
-        middle = data[(len(data) // 2)]
+        return data
 
+    elif len(data) >= 3:
+        print(f"Data that's greater than or equal to 3: {data}")
 
-    quartiles = [data[0], middle, data[-1]]
-    quartiles.sort()
-    pivot = quartiles[1]
-    data.remove(pivot)
+        # finds (using the mean of 3 method), the first, middle and last items in the data
+        quartiles = [data[0], data[(len(data) // 2)], data[-1]]
+        # sorts the items, so they are in order from highest to lowest
+        quartiles.sort()
+        # sets the pivot as the middle one of these values, after they've been sorted
+        pivot = quartiles[1]
+        # removes the pivot from the data set, so it can be compared properly without interference
 
-    while True:
+        print(f"The length of the data is: {len(data)}")
+
+        if len(data) == 3:
+            print("returning quartiles for len 3 data")
+            print(f"The sorted data is {quartiles}")
+            return quartiles
+
+        data.remove(pivot)
+
+        while True:
+            for e, i in enumerate(data):
+                if i > pivot:
+                    l_index = e
+                    break
+
+            for i in range(len(data) - 1, -1, -1):
+                if data[i] < pivot:
+                    r_index = i
+                    break
+
+            if l_index > r_index:
+                break
+            else:
+                data[e], data[r_index] = data[r_index], data[e]
+
+        data.insert(len(data) // 2, pivot)
+
+        sorted = True
         for e, i in enumerate(data):
-            if i > pivot:
-                l_index = e
-                break
+            try:
+                if i > data[e + 1]:
+                    sorted = False
+            except:
+                pass
 
-        for i in range(len(data) - 1, -1, -1):
-            if data[i] < pivot:
-                r_index = i
-                break
+        if sorted == True:
+            print("ending")
+            print(f"the sorted data is {data}")
+            return data
 
-        if l_index > r_index:
-            break
-        else:
-            data[e], data[r_index] = data[r_index], data[e]
-
-    data.insert(len(data) // 2, pivot)
-
-    print(data)
-
-    if len(data) >= 3:
-        return quick_sort(data[0:data.index(pivot)]) + quick_sort(data[data.index(pivot) + 1:])
-
-    else:
-        pass
+        elif sorted == False:
+            print(f"The sorted data is {data}")
+            print("recursing")
+            return quick_sort(data[0:data.index(pivot)]) + quick_sort(data[data.index(pivot) + 1:])
 
 
 print(quick_sort(data))

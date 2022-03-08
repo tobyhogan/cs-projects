@@ -2,5 +2,7 @@ Code 4 sorting algorithms in python:
 - Insertion sort
 - Bubble sort
 - Quick sort
+- Linear search
+- Binary search
 
-Comments on eatch line
+Comments on each line

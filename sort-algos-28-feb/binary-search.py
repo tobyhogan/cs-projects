@@ -27,3 +27,5 @@ def binary_search(data, item):
 
 
 binary_search(data, 73)
+
+# FIXME: item comparison algorithm needs calibrating

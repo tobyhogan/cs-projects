@@ -88,3 +88,5 @@ def quick_sort(data):
 
 
 print(quick_sort(data))
+
+# FIXME item recombination algorithm needs work

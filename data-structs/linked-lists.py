@@ -1,3 +1,5 @@
+# This is code for a uni-directional linked list
+
 class Node:
     def __init__(self, data=None, pos=None, test=None):
         self.data = data
@@ -15,6 +17,6 @@ class LinkedList:
             self.head = node
             self.tail = node
 
-    def get_iter(self):
-        while True:
-            pass
+        else:
+            self.head.next = node
+            self.head = node

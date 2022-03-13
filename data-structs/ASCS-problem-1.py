@@ -1,19 +1,24 @@
-string = input("Please enter a string to test is a palindrome: ")
+letters = list(input("Please enter a string to test is a palindrome: "))
 
-letters_stack = [None]
+letters_stack = []
 
-for i in string:
-    if letters_stack[-1] != i:
-        letters_stack.append(i)
+for e, letter in enumerate(letters):
+    if len(letters_stack) == 0:
+        letters_stack.append(letter)
 
-    elif (letters_stack[-1]):
-        letters_stack.pop()
+    elif letters_stack[-1] != letter:
+        letters_stack.append(letter)
 
-    elif (len(string) % 2 != 0) and (i == string[len(string) // 2]):
-        print("yo")
-        letters_stack.pop()
+    elif letters_stack[-1] == letter:
+        del letters_stack[-1]
+
+    if (e == (len(letters) // 2)) and (len(letters) % 2 != 0):
+        del letters_stack[-1]
 
 
+if len(letters_stack) == 0:
+    print("That word was a palyndrome!")
 
-if len(letters_stack) == 1:
-    print("That text was a palindrome!")
+else:
+    print("That word was NOT a palyndrome :(")
+

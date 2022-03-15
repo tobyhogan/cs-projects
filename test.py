@@ -1,6 +1,4 @@
-from argparse import ArgumentError
+import itertools
 
-
-arr = [1, 3, 3]
-arr.remove(3)
-print(arr)
+for i in itertools.count(start=1):
+    print(i)

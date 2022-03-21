@@ -57,25 +57,37 @@ class LinkedList:
             # the tail of the list is the last item
             self.tail = items[-1]
 
-    #
+    # a method to add an item to the end of the linked list
     def append(self, item):
+        # the old tails new previous item is the appended item
         self.tail.previous_item = item
+        # the next item of the new tail is the old tail
         item.next_item = self.tail
+        # the previous item of the new tail is nothing(None)
         item.previous_item = None
+        # the new tail is the item that was passed in
         self.tail = item
 
+    # a function to go through each item and print out the value of the data that it holds
     def iterate(self):
+        # starts iteration at the head
         current_item = self.head
         while True:
+            # outputs the current item of data
             print(current_item.data)
+            # if the current item has more items behind it then make the current item the previous item
             if current_item.previous_item != None:
                 current_item = current_item.previous_item
 
+            # if there are no more items behind the current item then stop looping
             else:
                 break
 
+    # a function to show all the data items in the array and display them as if it was a list
     def display(self):
+        # creating the empty array to act as a list
         arr = []
+        # 
         current_item = self.head
         while True:
             arr.append(current_item.data)

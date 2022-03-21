@@ -10,7 +10,7 @@ Need to be able to do:
 
 class Node:
     def __init__(self, connections):
-        # format: {"A":["B", "C"]}
+        # connections in format: [connected node, weight]
         self.connections = connections
 
 

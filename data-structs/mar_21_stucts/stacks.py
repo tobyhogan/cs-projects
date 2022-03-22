@@ -39,6 +39,19 @@ class Stack:
             print(current_item.data)
             current_item = current_item.next
 
+    def display(self):
+        arr = []
+        current_item = self.bottom
+
+        while True:
+            if current_item.next == None:
+                break
+
+            arr.append(current_item.data)
+            current_item = current_item.next
+
+        return arr
+
     def check_underflow(self):
         if self.top == None and self.bottom == None:
             return True
@@ -47,7 +60,7 @@ class Stack:
             return False
 
     def check_overflow(self):
-        if
+        pass
 
 
 my_stack = Stack([83, 34, 53, 12, 2, 9, 21, 32, 93, 32])

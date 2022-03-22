@@ -87,16 +87,23 @@ class LinkedList:
     def display(self):
         # creating the empty array to act as a list
         arr = []
-        # 
+        # setting the item to look at currently to the first item in the list
         current_item = self.head
+        # creating a loop that goes through each item in the list sequentially and adds the data to a list
         while True:
+            # actually adding the data to a list
             arr.append(current_item.data)
+            # checking if the current item is not the last item
             if current_item.previous_item != None:
+                # setting the curerent itme to the item behind it
                 current_item = current_item.previous_item
             else:
                 break
 
+        # actually giving the array with all the data values addded as a result
         return arr
+
+# testing the program:
 
 
 linked_list = LinkedList([1, 3, 5, 6, 8, 9, 10, 2, 3, 4, 5, 6])

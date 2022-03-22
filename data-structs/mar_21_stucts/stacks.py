@@ -1,74 +1,57 @@
-# FIXME: needs to be modified for stacks
-
 class Node:
     def __init__(self, data):
         self.data = data
-        self.previous_item = None
-        self.next_item = None
+        self.prev = None
+        self.next = None
 
 
-class Queue:
+# how stack will be stored in memory: [... -> ... -> ... -> Head]
+
+class Stack:
     def __init__(self, items: list = None):
-        self.head = None
-        self.tail = None
+        self.limit = 1024
 
-        if items:
-            items = [Node(i) for i in items]
+        if items == None:
+            self.top = None
+            self.bottom = None
+
+        elif items != None:
+            for e, i in enumerate(items):
+                items[e] = Node(i)
 
             for e, i in enumerate(items):
-                if e < items.index(items[-1]):
-                    i.previous_item = items[e + 1]
-
-                else:
-                    i.previous_item = None
-
                 if e != 0:
-                    i.next_item = items[e - 1]
+                    i.previous = items[e - 1]
 
-            self.head = items[0]
-            self.tail = items[-1]
+                if e != items.index(items[-1]):
+                    i.next = items[e + 1]
 
-    def enqueue(self, item):
-        self.head.next_item = item
-        item.previous_item = self.head
-        self.head.previous_item = self.head.previous_item.previous_item
-        self.head = item
-        print(self.head.data)
-        item.next_item = None
-
-    def dequeue(self):
-        self.tail = self.tail.next_item
-        self.tail.previous_item = None
-        del self.tail
+        self.top = items[-1]
+        self.bottom = items[0]
 
     def iterate(self):
-        current_item = self.head
+        current_item = self.bottom
+
         while True:
+            if current_item.next == None:
+                break
+
             print(current_item.data)
-            if current_item.previous_item != None:
-                current_item = current_item.previous_item
+            current_item = current_item.next
 
-            else:
-                break
+    def check_underflow(self):
+        if self.top == None and self.bottom == None:
+            return True
 
-    def peek_all(self):
-        arr = []
-        current_item = self.head
-        print(self.head.data)
-        while True:
-            if current_item.previous_item != None:
-                arr.append(current_item.data)
-                current_item = current_item.previous_item
+        else:
+            return False
 
-            else:
-                break
-
-        return arr
+    def check_overflow(self):
+        if
 
 
-my_queue = Queue([1, 3, 5, 6, 8, 9, 10, 2, 3, 4, 5, 9])
+my_stack = Stack([83, 34, 53, 12, 2, 9, 21, 32, 93, 32])
+my_stack.iterate()
 
-print(my_queue.peek_all())
-my_queue.dequeue()
-my_queue.enqueue(Node(8))
-print(my_queue.peek_all())
+print(my_stack.top.data)
+print(my_stack.bottom.data)

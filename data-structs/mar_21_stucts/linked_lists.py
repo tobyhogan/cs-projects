@@ -1,3 +1,5 @@
+# NOTE: DONE
+
 """
 Structure of linked list
 
@@ -109,7 +111,5 @@ class LinkedList:
 linked_list = LinkedList([1, 3, 5, 6, 8, 9, 10, 2, 3, 4, 5, 6])
 
 print(linked_list.display())
-
 linked_list.append(Node(8))
-
 print(linked_list.display())

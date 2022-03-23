@@ -1,3 +1,5 @@
+# NOTE: NOT DONE
+
 class Node:
     def __init__(self, data):
         self.data = data
@@ -5,7 +7,7 @@ class Node:
         self.next = None
 
 
-# how stack will be stored in memory: [... -> ... -> ... -> Head]
+# how stack will be stored in memory: [Bottom -> ... -> ... -> ... -> Top]
 
 class Stack:
     def __init__(self, items: list = None):
@@ -21,7 +23,7 @@ class Stack:
 
             for e, i in enumerate(items):
                 if e != 0:
-                    i.previous = items[e - 1]
+                    i.prev = items[e - 1]
 
                 if e != items.index(items[-1]):
                     i.next = items[e + 1]
@@ -33,7 +35,7 @@ class Stack:
         current_item = self.bottom
 
         while True:
-            if current_item.next == None:
+            if current_item == None:
                 break
 
             print(current_item.data)
@@ -44,7 +46,7 @@ class Stack:
         current_item = self.bottom
 
         while True:
-            if current_item.next == None:
+            if current_item == None:
                 break
 
             arr.append(current_item.data)
@@ -60,11 +62,28 @@ class Stack:
             return False
 
     def check_overflow(self):
-        pass
+        if len(self.display()) == self.limit:
+            return True
+
+        else:
+            return False
+
+    def pop_item(self):
+        self.top.prev.next = None
+        self.top = self.top.prev
+
+    def push_item(self, item):
+        if type(item) == Node:
+            self.top.next = item
+            item.next = None
+            item.prev = self.top
+            self.top = item
+
+        else:
+            raise Exception("Input must be type <Node>")
 
 
-my_stack = Stack([83, 34, 53, 12, 2, 9, 21, 32, 93, 32])
-my_stack.iterate()
-
-print(my_stack.top.data)
-print(my_stack.bottom.data)
+my_stack = Stack([83, 34, 53, 12, 2, 9, 21, 32, 93, 24])
+print(my_stack.display())
+my_stack.push_item(Node(9))
+print(my_stack.display())

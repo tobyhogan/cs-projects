@@ -46,6 +46,15 @@ class LinkedList:
         item.previous_item = None
         self.tail = item
 
+    def delete(self, data):
+        current = self.head
+
+        if self.head.data = data:
+            self
+
+        elif self.tail.data = data:
+            pass
+
     def iterate(self):
         current_item = self.head
         while True:

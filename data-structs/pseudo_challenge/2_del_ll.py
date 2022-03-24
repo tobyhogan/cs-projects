@@ -49,10 +49,10 @@ class LinkedList:
     def delete(self, data):
         current = self.head
 
-        if self.head.data = data:
-            self
+        if self.head.data == data:
+            pass
 
-        elif self.tail.data = data:
+        elif self.tail.data == data:
             pass
 
     def iterate(self):

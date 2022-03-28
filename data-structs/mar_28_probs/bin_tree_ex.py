@@ -95,6 +95,9 @@ class BinaryTree:
             print("Level", i)
             print([item[1].name for item in nodes if item[0] == i])
 
+    def display_as_list(self):
+        self.ponter = root
+
 
 my_tree = BinaryTree()
 

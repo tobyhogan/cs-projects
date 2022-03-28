@@ -22,8 +22,11 @@ class BinaryTree:
             self.pointer = self.root
 
             while True:
-                for i in range(max(len(self.pointer.name), len(item.name))):
-                    print(i)
+                for i in range(min(len(self.pointer.name), len(item.name)) + 1):
+                    # print(self.pointer.name[i])
+
+                    print(item.name[i], self.pointer.name[i])
+                break
 
 
 my_tree = BinaryTree()

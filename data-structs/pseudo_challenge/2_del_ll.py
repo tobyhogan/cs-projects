@@ -1,4 +1,4 @@
-
+# NOTE: UNFINISHED
 
 """
 Structure of linked list

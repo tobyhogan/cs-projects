@@ -1,12 +1,20 @@
 # creating the node class
+
+# a class for nodes which make up the elements in queues
 class Node:
+    # initialising the class, getting data for it
     def __init__(self, data):
         self.data = data
+        # setting the item before the node to nothing
         self.previous_item = None
+        # setting the item after the node to nothing
         self.next_item = None
+
+# creating the actual queue class itself
 
 
 class Queue:
+    # initialising the queue with the option to have items which pre-load the queue with values
     def __init__(self, items: list = None):
         self.head = None
         self.tail = None

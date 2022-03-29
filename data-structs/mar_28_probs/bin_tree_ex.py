@@ -151,9 +151,10 @@ class BinaryTree:
             if updated == False:
                 break
 
-            print(ln_break)
-            print([i.name for i in nodes])
-            print(ln_break)
+        print(ln_break)
+        print([i.name for i in nodes])
+        print([i.depth for i in nodes])
+        print(ln_break)
 
 
 my_tree = BinaryTree()
@@ -163,6 +164,9 @@ my_tree.add_item(Node("Aaron"))
 my_tree.add_item(Node("Adam"))
 my_tree.add_item(Node("Toby"))
 my_tree.add_item(Node("Jed"))
+my_tree.add_item(Node("Help"))
+my_tree.add_item(Node("Me"))
+my_tree.add_item(Node("Please"))
 
 
 my_tree.display_as_tree()

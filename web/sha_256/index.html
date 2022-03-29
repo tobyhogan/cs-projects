@@ -12,12 +12,10 @@
     <section id="header">
       <h1>SHA 256 Calculator</h1>
     </section>
-    <section id="body">
-      <h2>Enter your text to convert it to a SHA-256 encrypted hash</h2>
-      <form>
-        <textarea id="textarea"></textarea>
-        <input type="button" value="ok" id="button" />
-      </form>
+    <section id="content">
+      <h2>Enter your to convert it to a SHA-256 encrypted hash</h2>
+      <textarea id="text" name="text" rows="4" cols="50"></textarea>
+      <button id="button" onclick="cypherInput()">OK</button>
     </section>
   </body>
 </html>

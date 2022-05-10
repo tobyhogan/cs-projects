@@ -1,10 +1,4 @@
-var crypto = require("crypto");
-
 function cypherInput() {
-    console.log("nice")
     val = document.getElementById("text").value
-    hash = crypto.createHash('sha256')
-    val = hash.update(val).digest('hex')
-    console.log(val)
-    document.getElementById("text").value = cypherText;
+    document.getElementById("text").value = "dlfa323sdfda8387rsdfa93w0kwd";
 }

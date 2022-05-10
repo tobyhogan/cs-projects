@@ -1,0 +1,77 @@
+﻿<html>
+  <head>
+    <title>My web page</title>
+    <link href="Web Technologies Example.css" rel="stylesheet" />
+    <script>
+      function myFunction() {
+        var x = document.getElementById("form1");
+        var text = "";
+        var i;
+        for (i = 0; i < x.length; i++) {
+          data = x.elements[i].value;
+          if (data != "This submits the data to another page") {
+            text += "Your email address was entered as: " + data + ".";
+          }
+        }
+        document.getElementById("output_here").innerHTML = text;
+      }
+    </script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <h1>The Taj Mahal</h1>
+    <h2>Based in India</h2>
+    <h3>Where is this formatting comming from?</h3>
+
+    <img
+      alt="Taj Mahal"
+      src="https://th-thumbnailer.cdn-si-edu.com/NaExfGA1op64-UvPUjYE5ZqCefk=/fit-in/1600x0/filters:focal(1471x1061:1472x1062)/https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer/b6/30/b630b48b-7344-4661-9264-186b70531bdc/istock-478831658.jpg"
+      height="200px"
+      width="200px"
+    />
+
+    <p>
+      <a href="http://www.tajmahal.gov.in/http://www.tajmahal.gov.in/"
+        >CLICK HERE FOR MORE INFO</a
+      >
+    </p>
+
+    <p>
+      It is estimated to have taken more than 22,000 people to build this
+      impressive building including labourers, painters, stonecutters,
+      embroidery artists, and many others.
+    </p>
+    <p>
+      According to legend it is believed that Emperor Shah Jahan had planned to
+      construct another Taj Mahal in black marble on the other side of the river
+      but the war with his sons interrupted his plans.
+    </p>
+    <p>
+      Built in memory of the Emperors third and most favourite wife Mumtāz
+      Mahal, the Taj Mahal took 17 years to be completed.
+    </p>
+
+    <p>The full height of the Taj Mahal is 171 metres (561 feet).</p>
+    <p>
+      More than 1,000 elephants were employed to transport the construction
+      materials used to build the Taj.
+    </p>
+    <p>
+      Many precious stones were ripped off from its walls by the British during
+      the Indian rebellion of 1857.
+    </p>
+
+    </br>
+
+    <form id="form1" action="">
+      Enter your e-mail address to get sent more information:
+      <input type="text" name="email" />
+    </form>
+
+    <button onclick="myFunction()">
+      Check I have your email address right
+    </button>
+    <p id="output_here"></p>
+  </body>
+</html>

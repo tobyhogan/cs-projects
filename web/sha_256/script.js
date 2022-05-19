@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 async function sha256(message) {
     // encode as UTF-8
     const msgBuffer = new TextEncoder().encode(message);                    
@@ -19,3 +20,9 @@ async function cypherInput() {
     document.getElementById("text").value = "hi";
     console.log(sha256(val.p));
 }
+=======
+function cypherInput() {
+    val = document.getElementById("text").value
+    document.getElementById("text").value = "dlfa323sdfda8387rsdfa93w0kwd";
+}
+>>>>>>> 77c3fb142e344198a97fde4231bc2d777a26c83c

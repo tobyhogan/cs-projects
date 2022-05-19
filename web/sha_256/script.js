@@ -1,10 +1,21 @@
-var crypto = require("crypto");
+async function sha256(message) {
+    // encode as UTF-8
+    const msgBuffer = new TextEncoder().encode(message);                    
 
-function cypherInput() {
-    console.log("nice")
-    val = document.getElementById("text").value
-    hash = crypto.createHash('sha256')
-    val = hash.update(val).digest('hex')
-    console.log(val)
-    document.getElementById("text").value = cypherText;
+    // hash the message
+    const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+
+    // convert ArrayBuffer to Array
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+
+    // convert bytes to hex string                  
+    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    return hashHex
+}
+
+
+async function cypherInput() {
+    val = document.getElementById("text").value;
+    document.getElementById("text").value = "hi";
+    console.log(sha256(val.p));
 }

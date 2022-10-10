@@ -1,5 +1,6 @@
-# the fibonacci sequence 
+# the fibonacci sequence
 from time import sleep
+
 
 def fib(limit):
     sequence = []
@@ -11,5 +12,6 @@ def fib(limit):
         print(f"Number {i + 1}: {z}")
         x = y
         y = z
+
 
 fib(int(input("Enter the number of digits you want to generate for: ")))
